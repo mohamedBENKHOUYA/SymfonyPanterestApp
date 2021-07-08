@@ -1,0 +1,39 @@
+{% extends 'layouts/base.html.twig' %}
+
+{% block title 'show pin' %}
+
+
+
+{% block body %}
+
+    <div class="show_pin">
+        <ul class="show_pin_ul">
+            <li>
+                <img
+                     src="{{ pin.imageName ? vich_uploader_asset(pin, 'imageFile'): asset('/images/placeholder.png') | imagine_filter('squared_thumbnail_small') }}"/>
+            </li>
+            <li class="show_title">{{ pin.title }}</li>
+            <time class="show_submit" datetime="{{ pin.createdAt|date('Y-m-d H:i:s') }}">Submitted {{ pin.createdAt|date|ago }}</time>
+            <li class="show_description">{{ pin.description }}</li>
+        </ul>
+
+
+        <div class="show_links" >
+            <a href="{{ path('app_pins_edit', {'id': pin.id}) }}">Edit</a>
+            <a class="js-pins-delete" href="#">Delete</a>
+        </div>
+    </div>
+
+
+    <form class="myform" style="display: none;"
+          method="post" action="{{ path('app_pins_delete', {'id': pin.id}) }}">
+        <input type="hidden" name="_token" value="{{ csrf_token('pin_delete_' ~ pin.id) }}"/>
+        <input type="hidden" name="_method" value="DELETE"/>
+    </form>
+
+
+
+{% endblock %}
+
+
+

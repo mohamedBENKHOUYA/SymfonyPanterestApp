@@ -1,0 +1,39 @@
+{% extends 'layouts/base.html.twig' %}
+
+{% block title 'pins' ~ parent() %}
+
+{% block body %}
+
+
+
+    {% set noPin %}
+        <p class="noPin">sorry, no pin yet. <a href="{{ path('app_pins_create') }}">create one</a></p>
+    {% endset %}
+
+
+    <h2 class="pin_number">{{ pluralize(pins|length,'Pin') }}</h2>
+    {% if pins|length > 0 %}
+        {# {% for row in pins|batch(3) %} : batch(group) 3 by 3 => row is array of 3 elements #}
+        <div class="content_pins">
+            {% for pin in pins %}
+                <ul class="pinBox">
+                    <a href="{{ path('app_pins_show', {'id': pin.id}) }}">
+                        <li>
+                            <img src="{{ pin.imageName ? vich_uploader_asset(pin, 'imageFile'): asset('build/images/placeholder.png')| imagine_filter('squared_thumbnail_small') }}" alt="">
+                        </li>
+                    </a>
+                    <li class="pin_title"><a href=" {{ path('app_pins_show', {'id': pin.id}) }}">{{ pin.title }}</a>
+                    </li>
+                    {# asset('uploads/pins/'~pin.imageName) : my previous method #}
+                    {# <li>{{ pin.description|u.truncate(25, '...', false) }}</li> #}
+                    <li><small>Submitted : {{ pin.createdAt|date|ago }} by [Owner Full Name]</small></li>
+                </ul>
+            {% endfor %}
+        </div>
+
+    {% else %}
+        {{ noPin }}
+    {% endif %}
+
+
+{% endblock %}

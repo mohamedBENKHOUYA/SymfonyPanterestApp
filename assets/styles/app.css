@@ -1,0 +1,213 @@
+
+/*@import '~bootstrap';*/
+
+*,
+*::after,
+*::before {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+ }
+.show_pin {
+    /*width: 800px;*/
+    /*border: solid;*/
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+}
+.show_title {
+    /*border: solid;*/
+    text-align: center;
+    color: gray;
+    font-style: italic;
+    font-weight: 800;
+    font-size: 1.5rem;
+}
+.show_submit {
+    font-weight: 300;
+    color: lightseagreen;
+}
+.show_description {
+    font-weight: 800;
+    font-size: 1rem;
+    color: lightseagreen;
+}
+.show_pin_ul {
+    /*border: solid;*/
+    /*width: 400px;*/
+    padding: 20px;
+}
+.show_pin_ul img {
+    width: 400px;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+.show_links a{
+
+    display: inline-block;
+    margin: 20px;
+    padding: 10px 30px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    text-decoration: none;
+    color: #333;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-weight: 800;
+}
+.pin_title {
+    font-size: 1.4rem;
+}
+.content_pins {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 20px;
+}
+.content_pins .pinBox {
+    flex-basis: 0;
+    flex-grow: 0.7;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    display: grid;
+    display:flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: center;
+    gap: 10px;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    /*overflow: hidden;*/
+}
+.pinBox img {
+    /*border: solid;*/
+    width: 250px;
+    height: 250px;
+    /*min-width: 200px;*/
+    object-fit: cover;
+    border-radius: 10px;
+    margin-top: 10px;
+    transition: all .4s ease;
+}
+.pinBox a {
+    /*border: solid;*/
+    border-radius: 10px;
+    overflow: hidden;
+}
+.pinBox img:hover {
+    transform: scale(1.2);
+}
+.pin_title a {
+    text-decoration: none;
+    color: #fff;
+    font-style: italic;
+}
+.noPin {
+    text-align: center;
+    font-size: 2rem;
+}
+.pin_number {
+    text-align: center;
+    color: #aaa;
+    font-style: italic;
+    font-size: 2rem;
+}
+.vich-image {
+    margin-top: 10px;
+}
+.vich-image div {
+    margin: 10px 0;
+}
+.vich-image > a:first-of-type {
+    /*border: solid;*/
+    display: inline-block;
+    border-radius: 50%;
+    overflow: hidden;
+    width: 100px;
+    height: 100px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 1);
+    margin-bottom: 20px;
+}
+
+body {
+    min-height: 100vh;
+    padding: 110px;
+    background: #61dafb;
+}
+.image_img {
+    width: 200px;
+}
+ul {
+    list-style: none;
+}
+.alert {
+    padding: 20px;
+    animation-name: animateMessage;
+    animation-duration: 3s;
+    animation-fill-mode: forwards;
+
+}
+.alert-info {
+    background: #0002;
+}
+.alert-success {
+    background: green;
+}
+@keyframes animateMessage {
+    0% {
+        opacity: 1;
+    }
+    70% {opacity: 1}
+    100% {
+        opacity: 0;
+    }
+
+}
+
+.create_wrapper {
+    /*border: solid;*/
+    padding: 50px;
+    background: rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+.title, .description {
+    border: none;
+    outline: none;
+    padding: 10px 5px;
+    background: lightblue;
+    border-radius: 5px;
+}
+
+.btn_submit {
+    display: block;
+    padding: 10px 30px;
+    border: none;
+    margin-top: 20px;
+    background: lightsalmon;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all .5s ease;
+}
+.btn_submit:hover {
+    background: lightseagreen;
+    letter-spacing: 2px;
+
+}
+
+.chooseFile {
+    padding: 10px 20px;
+    border: none;
+    outline: none;
+    background: lightseagreen;
+    cursor: pointer;
+    appearance: none;
+    margin-top: 15px;
+    border-radius: 10px;
+
+}
+
