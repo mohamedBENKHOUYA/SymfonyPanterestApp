@@ -26,7 +26,7 @@
                     </li>
                     {# asset('uploads/pins/'~pin.imageName) : my previous method #}
                     {# <li>{{ pin.description|u.truncate(25, '...', false) }}</li> #}
-                    <li><small>Submitted : {{ pin.createdAt|date|ago }} by [Owner Full Name]</small></li>
+                    <li><small>Submitted : {{ pin.createdAt|date|ago }} by <span class="index_owner">{{ pin.user.fullName}} </span></small></li>
                 </ul>
             {% endfor %}
         </div>

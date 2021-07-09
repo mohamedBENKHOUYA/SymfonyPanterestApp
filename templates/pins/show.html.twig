@@ -13,7 +13,7 @@
                      src="{{ pin.imageName ? vich_uploader_asset(pin, 'imageFile'): asset('/images/placeholder.png') | imagine_filter('squared_thumbnail_small') }}"/>
             </li>
             <li class="show_title">{{ pin.title }}</li>
-            <time class="show_submit" datetime="{{ pin.createdAt|date('Y-m-d H:i:s') }}">Submitted {{ pin.createdAt|date|ago }}</time>
+            <time class="show_submit" datetime="{{ pin.createdAt|date('Y-m-d H:i:s') }}">Submitted {{ pin.createdAt|date|ago }} by <span class="index_owner"> {{ pin.user.fullName }}</span></time>
             <li class="show_description">{{ pin.description }}</li>
         </ul>
 

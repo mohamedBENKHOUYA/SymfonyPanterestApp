@@ -8,6 +8,10 @@
     margin: 0;
     box-sizing: border-box;
  }
+.index_owner {
+    font-weight: 900;
+    font-size: 0.8rem;
+}
 .show_pin {
     /*width: 800px;*/
     /*border: solid;*/
