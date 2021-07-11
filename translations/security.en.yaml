@@ -1,0 +1,2 @@
+'Invalid credentials.': 'votre identifiant ou password n est pas correct'
+"Invalid CSRF token. Le CSRF n'est pas valide": 'vous avez un problem de csrf'

@@ -1,0 +1,48 @@
+{% extends 'layouts/base.html.twig' %}
+
+{% block title 'Log in!' %}
+
+{% block body %}
+    <div class="login_container">
+        <form method="post" class="login_form">
+            {% if app.user %}
+                <div class="mb-3">
+                    You are logged in as {{ app.user.username }}, <a href="{{ path('app_logout') }}">Logout</a>
+                </div>
+            {% endif %}
+
+            <h1 class="h3 mb-3 font-weight-normal loginFormTitle">Please sign in</h1>
+
+            <label for="inputEmail" class="loginFormLabel">Email</label>
+            <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control"
+                   style="{{ border_error(error?true:false) }}" autocomplete="email" autofocus>
+            {% if error %}
+                <div class="error_login">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+            {% endif %}
+            <label for="inputPassword" class="loginFormLabel">Password</label>
+            <input type="password" name="password" id="inputPassword" class="form-control"
+                   autocomplete="current-password">
+
+            <input type="hidden" name="csrf_token"
+                   value="{{ csrf_token('authenticate') }}"
+            >
+
+
+            {# Uncomment this section and add a remember_me option below your firewall to activate remember me functionality. #}
+            {# See https://symfony.com/doc/current/security/remember_me.html #}
+            <div class="checkbox mb-3 rememberMe">
+                <label>
+                    <input type="checkbox" name="_remember_me" id="remember_me"/> Remember me
+                </label>
+                <p class="loginForgotPassword" >Forgot password?</p>
+            </div>
+
+
+            <button class="btn btn-lg  btn-outline-dark loginSubmit" type="submit">
+                Sign in
+            </button>
+            <p class="loginCreateAccount">Not registered yet? <a href="#">Create an account</a></p>
+        </form>
+    </div>
+
+{% endblock %}

@@ -22,6 +22,7 @@ class AppTwigExtension extends AbstractExtension
     {
         return [
             new TwigFunction('pluralize', [$this, 'doSomething']),
+            new TwigFunction('border_error', [$this, 'border_error']),
         ];
     }
 
@@ -30,5 +31,11 @@ class AppTwigExtension extends AbstractExtension
         $plural = $plural ?? $singular . 's';
 
         return ($len > 1)? $plural."($len)": $singular."($len)";
+    }
+
+    public function border_error(bool $error)
+    {
+        if ($error) return 'border: solid 2px #ff3333';
+        else return '';
     }
 }

@@ -1,0 +1,13 @@
+<nav class="nav_nav">
+    <h4 class="nav_logo"><a href="{{ path('app_home') }}">Panterest</a></h4>
+    <ul class="nav_ul">
+        {% if app.user %}
+        <li class="nav_li"><a href="{{ path('app_pins_create') }}">New Pin</a></li>
+        <li class="nav_li"><a href="#">Account</a></li>
+        <li class="nav_li"><a href="{{ path('app_logout') }}">Logout</a></li>
+        {% else %}
+        <li class="nav_li"><a href="#">Register</a></li>
+        <li class="nav_li"><a href="{{ path('app_login') }}">Login</a></li>
+        {% endif %}
+    </ul>
+</nav>

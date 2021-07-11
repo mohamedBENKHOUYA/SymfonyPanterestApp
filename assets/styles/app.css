@@ -7,7 +7,133 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+
  }
+.login_container {
+    min-height: 60vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.login_form {
+    height: 400px;
+    flex-grow: 0.5;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding: 20px;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+}
+.login_form .loginFormTitle {
+    /*border: solid;*/
+    font-weight: 300;
+
+}
+.loginFormLabel {
+    width: 100%;
+    /*border: solid;*/
+
+
+}
+.login_form .form-control {
+    width: 100%;
+    padding: 5px 10px;
+    outline: none;
+    border: 2px solid rgba(0, 0, 0, 0.2);
+    background: transparent;
+}
+.login_form .rememberMe {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+
+}
+.login_form .loginSubmit {
+    width: 100%;
+    padding: 15px 20px;
+    border: none;
+    outline: none;
+    background: lightseagreen;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.error_login {
+    color: red;
+    font-size: 0.8rem;
+    transform:  scaleY(0);
+    transform-origin: top;
+
+    animation-name: error_login_animate;
+    animation-duration: 5s;
+    animation-fill-mode: forwards;
+}
+@keyframes error_login_animate {
+    0% {
+        /*transform: translateX(100%);*/
+
+    }
+    20% {
+        transform: scaleY(1);
+    }
+    100% {
+        transform:  scaleY(1);
+    }
+
+
+}
+
+.nav_nav {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    min-height: 100px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    background: #61dafb;
+}
+.nav_logo {
+
+}
+.nav_logo a {
+    display: block;
+    padding: 10px 50px;
+    border-radius: 5px;
+    box-shadow: inset 0 0 10px #fff;
+    text-decoration: none;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+.nav_ul {
+    flex-basis: auto;
+    flex-grow: 0.6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    gap: 50px;
+}
+
+.nav_li {
+
+}
+.nav_li a {
+    text-decoration: none;
+    color: #fff;
+    padding: 10px 15px;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
+}
+.nav_li a:hover {
+    background: #282c34;
+
+}
 .index_owner {
     font-weight: 900;
     font-size: 0.8rem;
@@ -15,6 +141,7 @@
 .show_pin {
     /*width: 800px;*/
     /*border: solid;*/
+    margin-top: 50px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -36,11 +163,20 @@
     font-weight: 800;
     font-size: 1rem;
     color: lightseagreen;
+    white-space: pre-wrap;
+    /*border: solid;*/
+    margin-top: 30px;
+    word-break: break-all;
+    /*word-wrap: break-word;*/
 }
 .show_pin_ul {
     /*border: solid;*/
     /*width: 400px;*/
     padding: 20px;
+}
+.show_pin_ul li:first-child {
+    /*border: solid;*/
+    text-align: center;
 }
 .show_pin_ul img {
     width: 400px;
@@ -173,8 +309,8 @@ ul {
 }
 
 .create_wrapper {
-    /*border: solid;*/
     padding: 50px;
+    width: 300px;
     background: rgba(0, 0, 0, 0.1);
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
 }
@@ -212,6 +348,14 @@ ul {
     appearance: none;
     margin-top: 15px;
     border-radius: 10px;
+    width: 100%;
 
+}
+
+.edit_div{
+    margin-top: 50px;
+    border: 1px solid #fff;
+    padding: 40px;
+    border-radius: 10px;
 }
 

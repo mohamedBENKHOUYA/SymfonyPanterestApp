@@ -12,14 +12,9 @@
 
 </head>
 <body>
+{{ include('partials/_nav.html.twig') }}
 {{ include('partials/_flash_messages.html.twig') }}
-<nav>
-    <ul>
-        <li><a href="{{ path('app_pins_create') }}">Add Pin</a>
-        </li>
-        <li><a href="{{ path('app_home') }}">Home</a></li>
-    </ul>
-</nav>
+
 
 {% block body %} {% endblock %}
 
