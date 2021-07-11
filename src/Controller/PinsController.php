@@ -51,6 +51,7 @@ class PinsController extends AbstractController
         if ($form->isSubmitted() and $form->isValid()) {
 //            $repoUser = $em->getRepository('App:User');
 //            $user1 = $repoUser->find(1);
+            // getUser in controller, in template, in service (appExtensionTwig), in authenticator($token->getUser)...
             $user = $this->getUser();
             $pin = $form->getData();
             $pin->setUser($user);

@@ -49,7 +49,7 @@ implements PasswordAuthenticatedUserInterface
     public function onAuthenticationSuccess(Request $request, TokenInterface $token, string $firewallName): ?Response
     {
         // add flash message
-        $request->getSession()->getFlashBag()->add('success', 'Logged in successfully');
+        $request->getSession()->getFlashBag()->add('success', 'Welcome '.$token->getUser()->getFullName());
 
 
         // si cette condition est false => redirect to app_home, sinon redirect to it
