@@ -2,6 +2,9 @@ security:
     # https://symfony.com/doc/current/security/experimental_authenticators.html
     enable_authenticator_manager: true
     password_hashers:
+#  hasher used this algo to hash password of App\Entity\User. important in checkCredentials
+#        method in order to know algo (auto here) used to hash
+#passwordEncoder->isPasswordValid("$user", $credentials[pass])
         App\Entity\User:
             algorithm: auto
 
@@ -12,6 +15,7 @@ security:
             entity:
                 class: App\Entity\User
                 property: email
+# this part take care of authentication
     firewalls:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
@@ -34,12 +38,11 @@ security:
             # https://symfony.com/doc/current/security.html#firewalls-authentication
 
             # https://symfony.com/doc/current/security/impersonating_user.html
-            # switch_user: true
+#            switch_user: true
 
     # Easy way to control access for large sections of your site
     # Note: Only the *first* access control that matches will be used
     access_control:
         # - { path: ^/admin, roles: ROLE_ADMIN }
         # - { path: ^/profile, roles: ROLE_USER }
-        - {path: ^/pins, roles: ROLE_USER}
-        - {path: ^/login, roles: PUBLIC_ACCESS}
+

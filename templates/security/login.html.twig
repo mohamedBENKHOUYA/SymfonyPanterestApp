@@ -17,7 +17,7 @@
             <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control"
                    style="{{ border_error(error?true:false) }}" autocomplete="email" autofocus>
             {% if error %}
-                <div class="error_login">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                <div class="error_login">{{ error.message|trans(error.messageData, 'security') }}</div>
             {% endif %}
             <label for="inputPassword" class="loginFormLabel">Password</label>
             <input type="password" name="password" id="inputPassword" class="form-control"

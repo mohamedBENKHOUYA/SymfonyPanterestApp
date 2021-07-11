@@ -68,6 +68,8 @@ implements PasswordAuthenticatedUserInterface
         return $this->urlGenerator->generate(self::LOGIN_ROUTE);
     }
 
+    //used to upgrade (rehash) the  user's password automatically over time.
+//if best algo changed, once user connected, we can get his plain password to rehash it
     public function getPassword(): ?string
     {
         // TODO: Implement getPassword() method.
