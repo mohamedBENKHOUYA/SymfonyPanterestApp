@@ -16,8 +16,9 @@
     {{ form_row(registrationForm.plainPassword, {
         label: 'Password'
     }) }}
-    {{ form_row(registrationForm.agreeTerms) }}
+    {{ form_widget(registrationForm.agreeTerms) }}
+    {{ form_label(registrationForm.agreeTerms) }}
 
-    <button type="submit" class="btn">Register</button>
+    <button type="submit" class="btn-register">Register</button>
     {{ form_end(registrationForm) }}
 {% endblock %}

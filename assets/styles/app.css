@@ -359,3 +359,9 @@ ul {
     border-radius: 10px;
 }
 
+.btn-register {
+    display: block;
+    padding: 5px 30px;
+    margin-top: 10px;
+    cursor: pointer;
+}
