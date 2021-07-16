@@ -18,6 +18,7 @@
     }) }}
     {{ form_widget(registrationForm.agreeTerms) }}
     {{ form_label(registrationForm.agreeTerms) }}
+    {{ form_errors(registrationForm.agreeTerms) }}
 
     <button type="submit" class="btn-register" formnovalidate>Register</button>
     {{ form_end(registrationForm) }}

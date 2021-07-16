@@ -12,6 +12,8 @@ use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Validator\Constraints as Assert;
 
+
+// in UniqueEntity, we can have a combinaison : fields={"lastName", "fistName"}
 /**
  * @ORM\Entity(repositoryClass=UserRepository::class)
  * @ORM\Table(name="users")
@@ -43,6 +45,8 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     private $lastName;
 
+    // this unique=true is important(database side), if we have two users registring
+    // in the same time (race condition)
     /**
      * @ORM\Column(type="string", length=255, unique=true)
      * @Assert\Email(message="Please enter a valid address")

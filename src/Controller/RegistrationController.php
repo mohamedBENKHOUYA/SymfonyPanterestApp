@@ -59,6 +59,9 @@ class RegistrationController extends AbstractController
         // if $user(formType or here), so in handleRequest we create a user from form
         // submitted (in case of: getData())and update "$user = new User()"
         // but, all fields need to be same with User class unless ("mapped" => false)
+
+        // because of "@UniqueEntity", if post, there will be : select all... where
+        // email = ... to verify the email unicity
         $form->handleRequest($request);
 
 
