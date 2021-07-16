@@ -9,7 +9,7 @@
 
 
     <h1>Register</h1>
-    {{ form_start(registrationForm) }}
+    {{ form_start(registrationForm, {'attr': {'novalidate': 'novalidate'}}) }}
     {{ form_row(registrationForm.firstName) }}
     {{ form_row(registrationForm.lastName) }}
     {{ form_row(registrationForm.email) }}
@@ -19,6 +19,6 @@
     {{ form_widget(registrationForm.agreeTerms) }}
     {{ form_label(registrationForm.agreeTerms) }}
 
-    <button type="submit" class="btn-register">Register</button>
+    <button type="submit" class="btn-register" formnovalidate>Register</button>
     {{ form_end(registrationForm) }}
 {% endblock %}

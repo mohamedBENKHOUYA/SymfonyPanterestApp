@@ -60,7 +60,7 @@ class FormPinType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
 //        $pin = $form->getData(); ****
-//            validation form
+//            validation form (above)
         //deviner textareatype
             $resolver->setDefaults([
                 'data_class' => Pin::class,
