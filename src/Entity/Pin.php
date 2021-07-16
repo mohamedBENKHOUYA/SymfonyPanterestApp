@@ -39,6 +39,7 @@ class Pin
      */
     private $title;
 
+
     /**
      * @ORM\Column(type="text")
      * @Assert\NotBlank(message="description can't be blank, sorry")

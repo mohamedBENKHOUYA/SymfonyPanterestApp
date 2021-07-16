@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Pin;
+use App\Entity\User;
 use App\Form\FormPinCreateType;
 use App\Form\FormPinType;
 use Doctrine\ORM\EntityManagerInterface;
@@ -42,13 +43,17 @@ class PinsController extends AbstractController
     public function create(Request $req, EntityManagerInterface $em, SluggerInterface $slugger)
     {
         // prepopulate, and guess textareaType
-        // and $pin = $form->getData(); and validatin form
+        // and $pin = $form->getData(); and validation form(class validation)
+        // and l'objet passé va être modifié(avec les setters avec les données de form).
         // imageName have to be wether File or null. without $pin => null(ici null car
         // on a pas mis $pin dedans)
         // base => string image => $pin => Error
         $form = $this->createForm(FormPinType::class);
         $form->handleRequest($req);
+
         if ($form->isSubmitted() and $form->isValid()) {
+//            dd($form->getData());
+
 //            $repoUser = $em->getRepository('App:User');
 //            $user1 = $repoUser->find(1);
             // getUser in controller, in template, in service (appExtensionTwig), in authenticator($token->getUser)...
@@ -132,8 +137,6 @@ class PinsController extends AbstractController
         $form->handleRequest($req);
 
         if ($form->isSubmitted() && $form->isValid()) {
-
-
             $this->em->flush();
             $this->addFlash('success', 'Pin successfully edited');
             return $this->redirectToRoute('app_pins_show', ['id' => $pin->getId()]);

@@ -32,7 +32,7 @@
             {# See https://symfony.com/doc/current/security/remember_me.html #}
             <div class="checkbox mb-3 rememberMe">
                 <label>
-                    <input type="checkbox" name="_remember_me" id="remember_me"/> Remember me
+                    <input type="checkbox" name="_remember_me" /> Remember me
                 </label>
                 <p class="loginForgotPassword" >Forgot password?</p>
             </div>
@@ -41,7 +41,7 @@
             <button class="btn btn-lg  btn-outline-dark loginSubmit" type="submit">
                 Sign in
             </button>
-            <p class="loginCreateAccount">Not registered yet? <a href="#">Create an account</a></p>
+            <p class="loginCreateAccount">Not registered yet? <a href="{{ path('app_register') }}">Create an account</a></p>
         </form>
     </div>
 

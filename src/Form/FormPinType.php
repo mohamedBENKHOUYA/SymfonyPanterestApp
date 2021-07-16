@@ -50,7 +50,9 @@ class FormPinType extends AbstractType
                 'asset_helper' => true,
                 'attr' => ['class' => 'chooseFile'],
                 'label' => 'Image(JPG or PNG file)',
-                'constraints' => [new File($imageFileConstraints)]
+                'constraints' => [
+                    new File($imageFileConstraints)
+                ]
             ])
         ;
     }

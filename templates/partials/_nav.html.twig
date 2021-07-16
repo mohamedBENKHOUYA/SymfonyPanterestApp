@@ -6,7 +6,7 @@
         <li class="nav_li"><a href="#">Account</a></li>
         <li class="nav_li"><a href="{{ path('app_logout') }}">Logout</a></li>
         {% else %}
-        <li class="nav_li"><a href="#">Register</a></li>
+        <li class="nav_li"><a href="{{ path('app_register') }}">Register</a></li>
         <li class="nav_li"><a href="{{ path('app_login') }}">Login</a></li>
         {% endif %}
     </ul>

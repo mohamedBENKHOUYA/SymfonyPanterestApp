@@ -38,6 +38,10 @@ class AppTwigExtension extends AbstractExtension
     public function doSomething(int $len,string $singular, ?string $plural = null)
     {
         $plural = $plural ?? $singular . 's';
+        //we can get user here
+//        dd($this->security->getUser());
+//        $foo = ByteString::fromRandom(12);
+//        dd($foo);
 
         return ($len > 1)? $plural."($len)": $singular."($len)";
     }
