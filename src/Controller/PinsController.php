@@ -43,9 +43,9 @@ class PinsController extends AbstractController
     public function create(Request $req, EntityManagerInterface $em, SluggerInterface $slugger)
     {
         // prepopulate, and guess textareaType
-        // and $pin = $form->getData(); and validation form(class validation)
+        // and $pin = $form->getData(); and validation form(class and constraints validation)
         // and l'objet passé va être modifié(avec les setters avec les données de form)
-        // and correspondance will be applied for fields
+        // and correspondance will be applied for fields (mapping when creating form)
         // imageName have to be wether File or null. without $pin => null(ici null car
         // on a pas mis $pin dedans)
         // base => string image => $pin => Error

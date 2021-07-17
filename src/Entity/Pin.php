@@ -33,9 +33,8 @@ class Pin
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Assert\NotBlank
+     * @Assert\NotBlank(message="title cannot be blank")
      * @Assert\Length(min=3, minMessage="at least 3")
-     * @Assert\NotNull
      */
     private $title;
 

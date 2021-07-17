@@ -13,7 +13,10 @@ use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Validator\Constraints as Assert;
 
 
-// in UniqueEntity, we can have a combinaison : fields={"lastName", "fistName"}
+// in UniqueEntity, we do select all fields from db and verify email unicity
+// we can have a combinaison : fields={"lastName", "fistName"}
+// we can fields="email"
+//
 /**
  * @ORM\Entity(repositoryClass=UserRepository::class)
  * @ORM\Table(name="users")

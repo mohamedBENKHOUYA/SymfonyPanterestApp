@@ -3,6 +3,7 @@
 namespace App\Form;
 
 use App\Entity\Pin;
+use App\Entity\User;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
@@ -12,6 +13,7 @@ use Symfony\Component\Form\FormInterface;
 use Symfony\Component\Form\FormView;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\File;
+use Symfony\Component\Validator\Constraints\Image;
 use Vich\UploaderBundle\Form\Type\VichImageType;
 
 class FormPinType extends AbstractType
@@ -51,7 +53,9 @@ class FormPinType extends AbstractType
                 'attr' => ['class' => 'chooseFile'],
                 'label' => 'Image(JPG or PNG file)',
                 'constraints' => [
-                    new File($imageFileConstraints)
+                    new Image( array_merge($imageFileConstraints, [
+                        'mimeTypesMessage'=> "this file is not a valid image"
+                    ]) ),
                 ]
             ])
         ;
@@ -60,8 +64,9 @@ class FormPinType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
 //        $pin = $form->getData(); ****
-//            validation form (above)
+//            validation form (class and constraints validation)
         //deviner textareatype
+        // mais pas de mapping entre Pin::class et le formulaire
             $resolver->setDefaults([
                 'data_class' => Pin::class,
             ]);
