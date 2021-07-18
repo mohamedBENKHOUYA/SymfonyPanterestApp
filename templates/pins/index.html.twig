@@ -11,7 +11,8 @@
     {% endset %}
 
 
-    <h2 class="pin_number">{{ pluralize(pins|length,'Pin') }}</h2>
+{#    <h2 class="pin_number">{{ pluralize(pins|length,'Pin') }}</h2>#}
+    <h2 class="pin_number" >pins({{ count }})</h2>
     {% if pins|length > 0 %}
         {# {% for row in pins|batch(3) %} : batch(group) 3 by 3 => row is array of 3 elements #}
         <div class="content_pins">
@@ -38,6 +39,7 @@
                 </ul>
             {% endfor %}
         </div>
+            {{ knp_pagination_render(pins) }}
 
     {% else %}
         {{ noPin }}

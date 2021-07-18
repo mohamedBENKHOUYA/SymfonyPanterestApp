@@ -1,0 +1,12 @@
+
+App\Entity\User:
+    user1:
+        firstName: '<firstName()>'
+        lastName: '<lastName()>'
+        email: '<email()>'
+        password: \$2y\$13\$ue6Ddi6eL0nPOupysAiRu.lDwoX./Ey0jLnc/VEs0zZTjjnoGy5VG
+App\Entity\Pin:
+    pin_{0..100}:
+        title: <title()>
+        description: 'description_<current()>'
+        user: '@user1'

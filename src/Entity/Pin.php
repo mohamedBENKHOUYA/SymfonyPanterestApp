@@ -50,7 +50,7 @@ class Pin
      * NOTE: This is not a mapped field of entity metadata, just a simple property.
      *
      * @Vich\UploadableField(mapping="pin_image", fileNameProperty="imageName")
-     * @Assert\NotNUll(message="please upload a file", groups={"pin_create_validation"})
+     * @Assert\NotNull(message="please upload a file", groups={"pin_create_validation"})
      *
      * @var File|null
      */

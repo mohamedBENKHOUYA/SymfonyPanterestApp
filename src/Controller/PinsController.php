@@ -7,6 +7,7 @@ use App\Entity\User;
 use App\Form\FormPinCreateType;
 use App\Form\FormPinType;
 use Doctrine\ORM\EntityManagerInterface;
+use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
@@ -29,11 +30,22 @@ class PinsController extends AbstractController
     /**
      * @Route("/", requirements={}, name="app_home", methods={"GET"})
      */
-    public function index(EntityManagerInterface $em): Response
+    public function index(EntityManagerInterface $em, PaginatorInterface $paginator, Request $request): Response
     {
-        $repo = $em->getRepository(Pin::class);
-        $pins = $repo->findBy([], ['createdAt' => 'DESC']);
-        return $this->render('/pins/index.html.twig', compact('pins'));
+        $pinRepo = $em->getRepository(Pin::class);
+        $query = $pinRepo->createQueryBuilder('p')
+            ->orderBy('p.createdAt', 'DESC')
+            ->getQuery();
+
+        $pins = $paginator->paginate(
+            $query, /* query NOT result */
+            $request->query->getInt('page', 1), /*page number*/
+            10 /*limit per page*/
+        );
+//        $repo = $em->getRepository(Pin::class);
+//        $pins = $pinRepo->findBy([], ['createdAt' => 'DESC']);
+            $count = $pinRepo->count([]);
+        return $this->render('/pins/index.html.twig', compact('pins', 'count'));
 
     }
 
