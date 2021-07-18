@@ -4,10 +4,15 @@
         {% if app.user %}
         <li class="nav_li"><a href="{{ path('app_pins_create') }}">New Pin</a></li>
         <li class="nav_li"><a href="#">Account</a></li>
-        <li class="nav_li"><a href="{{ path('app_logout') }}">Logout</a></li>
+        <li class="nav_li"><a href="#" class="logout_btn" onclick="event.preventDefault(); document.getElementById('js-logout-form').submit();">Logout</a></li>
+
+         <form class="logout_form" id="js-logout-form" style="display: none" method="post" action="{{ path("app_logout") }}" >
+             <input type="hidden" name="_csrf_token" value="{{ csrf_token('logout')  }}" />
+         </form>
         {% else %}
         <li class="nav_li"><a href="{{ path('app_register') }}">Register</a></li>
         <li class="nav_li"><a href="{{ path('app_login') }}">Login</a></li>
+
         {% endif %}
     </ul>
 </nav>

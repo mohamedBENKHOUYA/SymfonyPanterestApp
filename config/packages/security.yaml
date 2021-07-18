@@ -26,6 +26,9 @@ security:
             custom_authenticator: App\Security\LoginFormAuthenticator
             logout:
                 path: app_logout
+                csrf_token_generator: security.csrf.token_manager
+#                csrf_parameter: _csrf_token
+#                csrf_token_id: logout
                 # where to redirect after logout
 #                target: app_login
             remember_me:
