@@ -365,3 +365,18 @@ ul {
     margin-top: 10px;
     cursor: pointer;
 }
+.ago_delete {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+.delete_pin {
+    display: inline-block;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    padding: 5px 10px;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: white;
+    font-size: 0.7rem;
+}

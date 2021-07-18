@@ -26,7 +26,15 @@
                     </li>
                     {# asset('uploads/pins/'~pin.imageName) : my previous method #}
                     {# <li>{{ pin.description|u.truncate(25, '...', false) }}</li> #}
-                    <li><small>Submitted : {{ pin.createdAt|date|ago }} by <span class="index_owner">{{ pin.user.fullName}} </span></small></li>
+                        <li class="ago_delete">
+                            <small>Submitted : {{ pin.createdAt|date|ago }} by <span class="index_owner">{{ pin.user.fullName}} </span></small>
+                            <a class="delete_pin" href="#" onclick="event.preventDefault(); confirm('are you sure?')? document.getElementById('js-delete-pin-{{ pin.id }}').submit(): 0; ">&times;Delete</a>
+                            <form id="js-delete-pin-{{ pin.id }}" action="{{ path('app_pins_delete', {'id': pin.getId()}) }}" method="POST" >
+                                <input type="hidden" name="_token" value="{{ csrf_token('pin_delete_' ~ pin.id) }}" />
+                                <input type="hidden" name="_method" value="DELETE" />
+                            </form>
+                        </li>
+
                 </ul>
             {% endfor %}
         </div>
