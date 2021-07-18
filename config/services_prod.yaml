@@ -1,0 +1,3 @@
+parameters:
+    app.mail_from_name: 'Panterest'
+    app.mail_from_address: 'hello@panterest.com'

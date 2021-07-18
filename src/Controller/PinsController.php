@@ -40,7 +40,8 @@ class PinsController extends AbstractController
         $pins = $paginator->paginate(
             $query, /* query NOT result */
             $request->query->getInt('page', 1), /*page number*/
-            10 /*limit per page*/
+//            $this->getParameter('app.number_pages_pagination') /*limit per page*/
+            Pin::NUM_ITEMS_PER_PAGE
         );
 //        $repo = $em->getRepository(Pin::class);
 //        $pins = $pinRepo->findBy([], ['createdAt' => 'DESC']);

@@ -14,11 +14,11 @@
                     style="display: none"
                     method="post"
                     action="{{ path('app_logout') }}">
+                <input type="hidden" name="_csrf_token" value="{{ csrf_token('logout') }}"/>
             </form>
         {% else %}
             <li class="nav_li"><a href="{{ path('app_register') }}">Register</a></li>
             <li class="nav_li"><a href="{{ path('app_login') }}">Login</a></li>
-            <input type="hidden" name="_csrf_token" value="{{ csrf_token('logout') }}"/>
         {% endif %}
     </ul>
 </nav>

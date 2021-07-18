@@ -23,6 +23,8 @@ class Pin
         $this->title = $title;
         $this->description = $description;
     }
+//    here as constante (change très rarement), or env or container parameters
+    public const NUM_ITEMS_PER_PAGE = 10;
     /**
      * @ORM\Id
      * @ORM\GeneratedValue
