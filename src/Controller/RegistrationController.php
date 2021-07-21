@@ -80,6 +80,7 @@ class RegistrationController extends AbstractController
             $em->persist($user);
             $em->flush();
             // generate a signed url and email it to the user
+
             $this->emailVerifier->sendEmailConfirmation('app_verify_email', $user,
                 (new TemplatedEmail())
 //                    ->from(new Address($_ENV['MAIL_FROM_ADDRESS'], $_ENV['MAIL_FROM_NAME']))
@@ -90,7 +91,7 @@ class RegistrationController extends AbstractController
                     ->subject('Please Confirm your Email')
                     ->htmlTemplate('emails/registration/confirmation.html.twig')
                     ->context([
-                        'expiration_date' => new \DateTime('+7 days')
+                        'expiration_date' => new \DateTime('+1 days')
                     ])
             );
 
